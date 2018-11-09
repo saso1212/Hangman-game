@@ -1,0 +1,13 @@
+.Button{
+    text-align: center;
+    padding: 5px 10px;
+    margin: 0 10px;
+}
+
+.Button:hover{
+    cursor: pointer;
+}
+
+.Button:disabled{
+    cursor: no-drop;
+}
