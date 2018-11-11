@@ -1,13 +1,29 @@
 .Button{
     text-align: center;
-    padding: 5px 10px;
-    margin: 0 10px;
+    width: 35px;
+    height: 35px;
+    margin: 10px 10px;
+    font-weight: bold;
+    box-shadow: 4px 4px 4px black;
+    border-radius: 3px;
+    border: none;
+    background: -moz-linear-gradient(rgb(95, 88, 121),rgba(185, 156, 185, 0.884));
+    background: linear-gradient(rgba(185, 156, 185, 0.884),rgb(95, 88, 121));
 }
 
 .Button:hover{
     cursor: pointer;
+    background: -moz-linear-gradient(rgb(95, 88, 121),rgba(185, 156, 185, 0.884));
+    background: linear-gradient(rgb(95, 88, 121),rgba(185, 156, 185, 0.884));
+}
+.Button:active{
+    position: relative;
+    top:2px;
+    left: 2px;
 }
 
 .Button:disabled{
     cursor: no-drop;
+    color:red;
+    background: none;
 }

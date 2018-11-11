@@ -6,18 +6,18 @@ class GamePage extends Component{
     state={
         keyboard:{
             firstRow:{
-                "A":{elementName:'А',btnClicked:false, img:'sorceForImgA'},
-                B:{elementName:'Б',btnClicked:false, img:'sorceForImgБ'},
-                C:{elementName:'В',btnClicked:false, img:'sorceForImgВ'},
-                D:{elementName:'Г',btnClicked:false, img:'sorceForImgГ'},
-                E:{elementName:'Д',btnClicked:false, img:'sorceForImgA'},
-                F:{elementName:'Ѓ',btnClicked:false, img:'sorceForImgБ'},
-                G:{elementName:'Е',btnClicked:false, img:'sorceForImgВ'},
-                J:{elementName:'Ж',btnClicked:false, img:'sorceForImgГ'},
-                I:{elementName:'З',btnClicked:false, img:'sorceForImgA'},
-                Р:{elementName:'Ѕ',btnClicked:false, img:'sorceForImgБ'},
-                K:{elementName:'И',btnClicked:false, img:'sorceForImgВ'},
-                L:{elementName:'Ј',btnClicked:false, img:'sorceForImgГ'}
+                А:{elementName:'А',btnClicked:false, img:'sorceForImgA'},
+                Б:{elementName:'Б',btnClicked:false, img:'sorceForImgБ'},
+                В:{elementName:'В',btnClicked:false, img:'sorceForImgВ'},
+                Г:{elementName:'Г',btnClicked:false, img:'sorceForImgГ'},
+                Д:{elementName:'Д',btnClicked:false, img:'sorceForImgA'},
+                Ѓ:{elementName:'Ѓ',btnClicked:false, img:'sorceForImgБ'},
+                Е:{elementName:'Е',btnClicked:false, img:'sorceForImgВ'},
+                Ж:{elementName:'Ж',btnClicked:false, img:'sorceForImgГ'},
+                З:{elementName:'З',btnClicked:false, img:'sorceForImgA'},
+                Ѕ:{elementName:'Ѕ',btnClicked:false, img:'sorceForImgБ'},
+                И:{elementName:'И',btnClicked:false, img:'sorceForImgВ'},
+                Ј:{elementName:'Ј',btnClicked:false, img:'sorceForImgГ'}
             }
         }
     }
