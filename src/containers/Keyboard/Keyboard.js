@@ -2,7 +2,9 @@ import React ,{Component} from 'react';
 import {connect} from 'react-redux';
 import classes from './Keyboard.css';
 import * as actions from '../../store/actions/index';
+import Aux from '../../huc/Auxilary';
 import Button from '../../components/UI/Buttons/Button';
+import Word from '../../components/Word/Word';
 
 
 
@@ -42,12 +44,18 @@ class Keyboard extends Component{
                 Џ:{elementName:'Џ',btnClicked:false, img:'sorceForImgБ'},
                 Ш:{elementName:'Ш',btnClicked:false, img:'sorceForImgВ'}
             }
-        }
+        },
+        qestionWord:null
     }
-
+    com
+   
     componentDidMount(){
-       console.log(this.props.purchased);
+       this.props.onFetchQuestion();
+       setTimeout(() => {
+        console.log('after componet didi mount',this.props.questionOne)
+       }, 10);
     }
+    
     btnClickedHandler=(btnName)=>{
             const updatedControls = {
                 ...this.state.keyboard,
@@ -60,7 +68,7 @@ class Keyboard extends Component{
                 },
             };
             this.setState( { keyboard: updatedControls } );
-            this.props.onFetchQuestion();
+            this.props.onShowLetter(btnName,this.props.questionOne)
     }
     render()
     {
@@ -79,37 +87,44 @@ class Keyboard extends Component{
              clicked={()=>this.btnClickedHandler(element.id)}
           >{element.config.elementName}</Button>
 
-      ))
+      ));
 
-
+            let word=null;
+            if(this.props.questionOne){
+                word=this.props.questionOne.map(element=>(
+                    <Word 
+                    key={element.key}
+                    show={element.show}
+                    hide={element.hide}
+                    >{element.id}</Word>
+            ))
+            }
         return(
+            <Aux>
+                <div style={{fontSize:'70px'}}>{this.props.attempts}</div>
+            <div style={{display:"flex",justifyContent:'center',marginTop:"100px"}}>
+             {word}</div>
             <div className={classes.Keyboard}>
-                <div> {firstRowKeyboard}</div>  
+                <div> {firstRowKeyboard}</div> 
             </div>
+            </Aux>
         )
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         ings: state.burgerBuilder.ingredients,
-//         purchased: state.order.purchased
-//     }
-// };
-
 const mapStateToProps = state => {
     return {
-        somequestion: state.quest.questions,
-        purchased:    state.quest.purchased
-        
+        questionOne: state.questions.data,
+        attempts:state.questions.attempts
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchQuestion: () => dispatch(actions.getQusetion())
+        onFetchQuestion: () => dispatch(actions.getQusetion()),
+        onShowLetter:(letter,array)=>dispatch(actions.showLetter(letter,array))
     };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Keyboard);
+export default connect( mapStateToProps, mapDispatchToProps)(Keyboard);
 

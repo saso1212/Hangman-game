@@ -1,1 +1,1 @@
-export {getQusetion} from './questions';
+export {getQusetion,guestionHandler,showLetter} from './questions';
