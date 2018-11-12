@@ -1,10 +1,12 @@
 import React ,{Component} from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import classes from './Keyboard.css';
 import * as actions from '../../store/actions/index';
 import Aux from '../../huc/Auxilary';
 import Button from '../../components/UI/Buttons/Button';
 import Word from '../../components/Word/Word';
+import Modal from '../../components/UI/Modal/Modal';
 
 
 
@@ -47,14 +49,13 @@ class Keyboard extends Component{
         },
         qestionWord:null
     }
-    com
+    
    
     componentDidMount(){
        this.props.onFetchQuestion();
-       setTimeout(() => {
-        console.log('after componet didi mount',this.props.questionOne)
-       }, 10);
+       
     }
+    
     
     btnClickedHandler=(btnName)=>{
             const updatedControls = {
@@ -68,8 +69,14 @@ class Keyboard extends Component{
                 },
             };
             this.setState( { keyboard: updatedControls } );
-            this.props.onShowLetter(btnName,this.props.questionOne)
+            this.props.onShowLetter(btnName,this.props.questionOne);
+            this.props.onGameOverHandler(btnName,this.props.word);
     }
+
+    confirmNewGame=()=>{
+     window.location.reload();
+    }
+
     render()
     {
         const firstRowArray=[];
@@ -97,13 +104,39 @@ class Keyboard extends Component{
                     show={element.show}
                     hide={element.hide}
                     >{element.id}</Word>
-            ))
+                ))
             }
+           
+            let modalData=null;
+            if (this.props.gameOver){
+                modalData=(
+                    <Aux>
+                        <div>НЕУСПЕШЕН ОБИД ОБИДИ СЕ ПОВТОРНО</div>
+                        <Button clicked={this.confirmNewGame} btnType='Succes'>DA</Button>
+                        <Button clicked={this.confirmExitOfGame} btnType='Danger'>NE</Button>
+                    </Aux>
+                )
+            }
+            else if (this.props.gameOverGoodAttemp){
+                modalData=(
+                    <Aux>
+                        <div>УСПЕШНО ГО ПОГОДИВТЕ ЗБОРОТ ДАЛИ САКАТА ДА СЕ ОБИДЕТЕ ПОВТОРНО:</div>
+                        <Button clicked={this.confirmNewGame} btnType='Succes'>DA</Button>
+                        <Button clicked={this.confirmExitOfGame} btnType='Danger'>NE</Button>
+                  </Aux>
+                )
+            }
+            
+            
         return(
+            
             <Aux>
-                <div style={{fontSize:'70px'}}>{this.props.attempts}</div>
+             <Modal show={this.props.gameOver}>{modalData}</Modal>
+             <Modal show={this.props.gameOverGoodAttemp}>{modalData}</Modal> 
+            <div style={{fontSize:'70px'}}>{this.props.wrongAttempts}</div>
             <div style={{display:"flex",justifyContent:'center',marginTop:"100px"}}>
              {word}</div>
+          
             <div className={classes.Keyboard}>
                 <div> {firstRowKeyboard}</div> 
             </div>
@@ -115,16 +148,22 @@ class Keyboard extends Component{
 const mapStateToProps = state => {
     return {
         questionOne: state.questions.data,
-        attempts:state.questions.attempts
+        attempts:state.questions.attempts,
+        wrongAttempts:state.questions.wrongAttempts,
+        word:state.questions.word,
+        gameOver:state.questions.wrongAttempts === 7 ,
+        gameOverGoodAttemp:state.questions.wordLength === state.questions.attempts
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onFetchQuestion: () => dispatch(actions.getQusetion()),
-        onShowLetter:(letter,array)=>dispatch(actions.showLetter(letter,array))
+        onShowLetter:(letter,array)=>dispatch(actions.showLetter(letter,array)),
+        onGameOverHandler:(letter,wordArray)=>dispatch(actions.gameOverHandler(letter,wordArray)),
+        onResetData:()=>dispatch(actions.onResetData())
     };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps)(Keyboard);
+export default withRouter(connect( mapStateToProps, mapDispatchToProps)(Keyboard));
 

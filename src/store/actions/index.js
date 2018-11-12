@@ -1,1 +1,1 @@
-export {getQusetion,guestionHandler,showLetter} from './questions';
+export {getQusetion,guestionHandler,showLetter,gameOverHandler,onResetData} from './questions';
