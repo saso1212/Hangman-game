@@ -10,6 +10,7 @@ import Modal from '../../components/UI/Modal/Modal';
 
 
 
+
 class Keyboard extends Component{
     state={
         keyboard:{
@@ -47,7 +48,41 @@ class Keyboard extends Component{
                 Ш:{elementName:'Ш',btnClicked:false, img:'sorceForImgВ'}
             }
         },
-        qestionWord:null
+       initialKeyboard:{
+         firstRow:{
+            А:{elementName:'А',btnClicked:false, img:'sorceForImgA'},
+            Б:{elementName:'Б',btnClicked:false, img:'sorceForImgБ'},
+            В:{elementName:'В',btnClicked:false, img:'sorceForImgВ'},
+            Г:{elementName:'Г',btnClicked:false, img:'sorceForImgГ'},
+            Д:{elementName:'Д',btnClicked:false, img:'sorceForImgA'},
+            Ѓ:{elementName:'Ѓ',btnClicked:false, img:'sorceForImgБ'},
+            Е:{elementName:'Е',btnClicked:false, img:'sorceForImgВ'},
+            Ж:{elementName:'Ж',btnClicked:false, img:'sorceForImgГ'},
+            З:{elementName:'З',btnClicked:false, img:'sorceForImgA'},
+            Ѕ:{elementName:'Ѕ',btnClicked:false, img:'sorceForImgБ'},
+            И:{elementName:'И',btnClicked:false, img:'sorceForImgВ'},
+            Ј:{elementName:'Ј',btnClicked:false, img:'sorceForImgГ'},
+            К:{elementName:'К',btnClicked:false, img:'sorceForImgA'},
+            Л:{elementName:'Л',btnClicked:false, img:'sorceForImgБ'},
+            Љ:{elementName:'Љ',btnClicked:false, img:'sorceForImgВ'},
+            М:{elementName:'М',btnClicked:false, img:'sorceForImgГ'},
+            Н:{elementName:'Н',btnClicked:false, img:'sorceForImgA'},
+            Њ:{elementName:'Њ',btnClicked:false, img:'sorceForImgБ'},
+            О:{elementName:'О',btnClicked:false, img:'sorceForImgВ'},
+            П:{elementName:'П',btnClicked:false, img:'sorceForImgГ'},
+            Р:{elementName:'Р',btnClicked:false, img:'sorceForImgA'},
+            С:{elementName:'С',btnClicked:false, img:'sorceForImgБ'},
+            Т:{elementName:'Т',btnClicked:false, img:'sorceForImgВ'},
+            Ќ:{elementName:'Ќ',btnClicked:false, img:'sorceForImgГ'},
+            У:{elementName:'У',btnClicked:false, img:'sorceForImgA'},
+            Ф:{elementName:'Ф',btnClicked:false, img:'sorceForImgБ'},
+            Х:{elementName:'Х',btnClicked:false, img:'sorceForImgВ'},
+            Ц:{elementName:'Ц',btnClicked:false, img:'sorceForImgГ'},
+            Ч:{elementName:'Ч',btnClicked:false, img:'sorceForImgA'},
+            Џ:{elementName:'Џ',btnClicked:false, img:'sorceForImgБ'},
+            Ш:{elementName:'Ш',btnClicked:false, img:'sorceForImgВ'}
+            }
+        }
     }
     
    
@@ -69,12 +104,14 @@ class Keyboard extends Component{
                 },
             };
             this.setState( { keyboard: updatedControls } );
-            this.props.onShowLetter(btnName,this.props.questionOne);
+            this.props.onShowLetter(btnName,this.props.question);
             this.props.onGameOverHandler(btnName,this.props.word);
     }
 
     confirmNewGame=()=>{
-     window.location.reload();
+    this.props.onResetData();
+    const initialKeyboard={...this.state.initialKeyboard}
+    this.setState({keyboard:initialKeyboard})
     }
 
     render()
@@ -87,7 +124,7 @@ class Keyboard extends Component{
             })
         }
    
-      let firstRowKeyboard=firstRowArray.map(element=>(
+       let firstRowKeyboard=firstRowArray.map(element=>(
           <Button
              key={element.id}
              disabled={element.config.btnClicked}
@@ -97,8 +134,8 @@ class Keyboard extends Component{
       ));
 
             let word=null;
-            if(this.props.questionOne){
-                word=this.props.questionOne.map(element=>(
+            if(this.props.question){
+                word=this.props.question.map(element=>(
                     <Word 
                     key={element.key}
                     show={element.show}
@@ -136,10 +173,11 @@ class Keyboard extends Component{
             <div style={{fontSize:'70px'}}>{this.props.wrongAttempts}</div>
             <div style={{display:"flex",justifyContent:'center',marginTop:"100px"}}>
              {word}</div>
-          
+             {/* <MainPage/> */}
             <div className={classes.Keyboard}>
                 <div> {firstRowKeyboard}</div> 
             </div>
+           
             </Aux>
         )
     }
@@ -147,12 +185,12 @@ class Keyboard extends Component{
 
 const mapStateToProps = state => {
     return {
-        questionOne: state.questions.data,
+        question: state.questions.data,
         attempts:state.questions.attempts,
         wrongAttempts:state.questions.wrongAttempts,
         word:state.questions.word,
         gameOver:state.questions.wrongAttempts === 7 ,
-        gameOverGoodAttemp:state.questions.wordLength === state.questions.attempts
+        gameOverGoodAttemp:state.questions.wordLength === state.questions.attempts,
     };
 };
 

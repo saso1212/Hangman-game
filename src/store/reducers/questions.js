@@ -3,18 +3,19 @@ import {updateObject} from '../utility';
 
 const initialState = {
     purchase:false,
-    qusetions:['МАЧЕ','КУЧЕ','ВОЛК','АВИОН','ДИНОСАУРУС','ОКТОПОД','ПЕПЕРУТКА','ТОПКА','ТРОТИНЕТ','КУКЛА','ФЛОМАСТЕРИ','ТЕЛЕВИЗОР','КОМПЈУТЕР','ТАБЛЕТ'],
+    qusetions:['МАЧЕ','КУЧЕ','ВОЛК','АВИОН','ДИНОСАУРУС','ОКТОПОД','ПЕПЕРУТКА','ТОПКА','ТРОТИНЕТ','КУКЛА','ФЛОМАСТЕРИ','ТЕЛЕВИЗОР','КОМПЈУТЕР','ТАБЛЕТ','БУКВАР','БОИЦИ','ОСТРИЛКА','АГЛОМЕР','ЛЕНИАР','ШЕСТАР'],
     data:[],
     word:[],
     attempts:0,
     wrongAttempts:0,
-    wordLength:0
+    wordLength:0,
+
 };
 //let item = items[Math.floor(Math.random()*items.length)];
 
 const reducer = ( state = initialState, action ) => {
     const randomQuestion=state.qusetions[Math.floor(Math.random()*state.qusetions.length)].split("");
-    let uniqueArray = randomQuestion.filter(function(item, pos, self) {
+    let uniqueArray = randomQuestion.filter((item, pos, self) =>{
         return self.indexOf(item) === pos;
     })
     let randomWordFromArray=randomQuestion.reduce((acc,cur,i)=>{ acc[i] = cur;return acc},{});
@@ -39,7 +40,8 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.TRUE_ATTEMPT_HANDLER:
         return updateObject(state,{attempts:state.attempts+ action.trueAttempts})
         case actionTypes.ON_RESET_DATA:
-        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:randomQuestion.length,attempts:0,wrongAttempts:0})
+        state.data=[];
+        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length,attempts:0,wrongAttempts:0})
         default:
             return state;
     }

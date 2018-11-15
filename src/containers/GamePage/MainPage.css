@@ -1,0 +1,35 @@
+.MainPage{
+    z-index: -10;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    margin-left: 20%;
+}
+.Left{
+    width: 20px;
+    height: 280px;
+    box-sizing: border-box;
+    background: black;
+    justify-items: flex-start;
+}
+.Top{
+    width: 100px;
+    height: 20px;
+    box-sizing: border-box;
+    background: black;
+    align-items: flex-start;
+}
+.Right{
+    width: 20px;
+    height: 100px;
+    box-sizing: border-box;
+    background: black;
+    justify-items: flex-end;
+    color: red;
+    
+}
+.Right h1{
+    margin-top: 120px;
+    font-size: 50px;
+    margin-right: 20px;
+}
