@@ -88,10 +88,7 @@ class Keyboard extends Component{
    
     componentDidMount(){
        this.props.onFetchQuestion();
-       
     }
-    
-    
     btnClickedHandler=(btnName)=>{
             const updatedControls = {
                 ...this.state.keyboard,

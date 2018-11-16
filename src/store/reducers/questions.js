@@ -20,6 +20,7 @@ const reducer = ( state = initialState, action ) => {
     })
     let randomWordFromArray=randomQuestion.reduce((acc,cur,i)=>{ acc[i] = cur;return acc},{});
     const wordArray=[];
+    //here shoul br logic for emptu space in word
     for (let key in randomWordFromArray){
         wordArray.push({
             key:Math.random(),
