@@ -110,6 +110,12 @@ class Keyboard extends Component{
     const initialKeyboard={...this.state.initialKeyboard}
     this.setState({keyboard:initialKeyboard})
     }
+    confirmExitOfGame=()=>{
+        this.props.history.push('/');
+        this.props.onResetData();
+        const initialKeyboard={...this.state.initialKeyboard}
+        this.setState({keyboard:initialKeyboard})
+    }
 
     render()
     {
