@@ -20,10 +20,10 @@ class MainPage extends Component{
       },200)
        setTimeout(()=>{
         this.setState({isLoadingSecRowFirstWord:true})
-        },500)
+        },400)
        setTimeout(()=>{
         this.setState({isLoadingSecRowSecondWord:true})
-       },800)
+       },900)
     }
     componentWillUnmount(){
         this.setState({isLoadingFirstRow:false,isLoadingSecRowFirstWord:false,isLoadingSecRowSecondWord:false})

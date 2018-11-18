@@ -2,9 +2,10 @@ import * as actionTypes from './actionTypes';
 
 
 
-export const getQusetion=()=>{
+export const getQusetion=(id)=>{
     return {
-        type:actionTypes.GET_QUSETION
+        type:actionTypes.GET_QUSETION,
+        id:id
     }
 };
 

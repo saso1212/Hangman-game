@@ -55,3 +55,10 @@
     font-weight: bold;
     color: red !important;
 }
+.Cloud{
+   font-size: 20px;
+    border-radius: 30%;
+    padding: 20px 100px !important;
+    background: -moz-linear-gradient();
+    background: linear-gradient(rgb(84, 63, 241),rgb(15, 8, 31))
+}

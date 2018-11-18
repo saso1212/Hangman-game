@@ -18,7 +18,7 @@
     
 }
 .FirstRow div{
-    transition: all 0.3s ease-in-out;  
+    transition: all 0.3s ease-in;  
 }
 .SecondRow{
     width: 100%;
@@ -26,10 +26,10 @@
     justify-content: center;
 }
 .SecondRow .FirstWord{
-    transition: all 0.3s ease-in-out;  
+    transition: all 0.3s ease-in;  
 }
 .SecondRow .SecondWord{
-    transition: all 0.3s ease-in-out;  
+    transition: all 0.3 ease-in;  
     margin-left: 10%;
 }
 

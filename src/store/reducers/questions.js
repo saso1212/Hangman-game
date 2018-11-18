@@ -2,14 +2,15 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
 
 const initialState = {
-    purchase:false,
-    qusetions:['МАЧЕ','МАСТИЛО','МАКЕДОНИЈА','ТАБЛЕТ','КОМПЈУТЕР','АВИОН','ДИНОСАУРУС','ТЕЛЕВИЗОР','МОБИЛЕН ТЕЛЕФОН','БАНАНА','УЧИЛИШНА ЧАНТА','ЛЕНИАР','ШЕСТАР','ФЛОМАСТЕРИ','МАТЕМАТИКА','ФИЗИКА','АГЛОМЕР','КОШАРКА','МЕЧКА','МАША И МЕДО','ГАРФИЛД'],
+    qusetions:['МАЧЕ','МАСТИЛО','МАКЕДОНИЈА','ТАБЛЕТ','КОМПЈУТЕР','АВИОН','ДИНОСАУРУС','ТЕЛЕВИЗОР','МОБИЛЕН ТЕЛЕФОН','БАНАНА','УЧИЛИШНА ЧАНТА','ЛЕНИАР','ШЕСТАР','ФЛОМАСТЕРИ','МАТЕМАТИКА','ФИЗИКА','АГЛОМЕР','КОШАРКА','МЕЧКА','МАША И МЕДО','ГАРФИЛД',
+            'ЕНЦИКЛОПЕДИЈА','АКВАРИУМ','АЦЕРОЛА','ГОСПОДИН БИН','РАБОТНА МАСА','ПАРИЧНИК','СКОПЈЕ','РЕКАТА ВАРДАР','ОЧИЛА','ТОМ И ЏЕРИ','ПЕНКАЛО','БИТОЛА','ОХРИД','КОПАЧКИ','ТАСТАТУРА','ДРВЕНИ БОИЦИ','КОСТЕНИ','ОВОШЈЕ','ЗЕЛЕНЧУК','ИГРАЧКИ','ПОРТОКАЛ','ЛЕГО КОЦКИ'],
     data:[],
     word:[],
     attempts:0,
     wrongAttempts:0,
     wordLength:0,
-
+    attemtsForGameOver:null,
+    gameOver:false
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -42,7 +43,7 @@ const reducer = ( state = initialState, action ) => {
     switch ( action.type ){
         case actionTypes.GET_QUSETION :
         state.data=[];
-        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length-flag});
+        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length-flag,attemtsForGameOver:action.id});
         case actionTypes.QUSETION_HANDLER:
         state.data=[];
         return updateObject(state,{data:state.data.concat(action.data)})
@@ -51,8 +52,8 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.TRUE_ATTEMPT_HANDLER:
         return updateObject(state,{attempts:state.attempts+ action.trueAttempts})
         case actionTypes.ON_RESET_DATA:
-        state.data=[];
-        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length-flag,attempts:0,wrongAttempts:0})
+        // return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length-flag,attempts:0,wrongAttempts:0});
+        return updateObject(state,{data:[],word:[],attempts:0,wrongAttempts:0,wordLength:0,attemtsForGameOver:null})
         default:
         return state;
     }

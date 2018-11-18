@@ -87,7 +87,7 @@ class Keyboard extends Component{
     
    
     componentDidMount(){
-       this.props.onFetchQuestion();
+       this.props.onFetchQuestion(+this.props.match.params.id);
     }
     btnClickedHandler=(btnName)=>{
             const updatedControls = {
@@ -107,6 +107,7 @@ class Keyboard extends Component{
 
     confirmNewGame=()=>{
     this.props.onResetData();
+    this.props.onFetchQuestion(+this.props.match.params.id);
     const initialKeyboard={...this.state.initialKeyboard}
     this.setState({keyboard:initialKeyboard})
     }
@@ -114,7 +115,7 @@ class Keyboard extends Component{
         this.props.history.push('/');
         this.props.onResetData();
         const initialKeyboard={...this.state.initialKeyboard}
-        this.setState({keyboard:initialKeyboard})
+        this.setState({keyboard:initialKeyboard,matchParams:0})
     }
 
     render()
@@ -148,10 +149,10 @@ class Keyboard extends Component{
             }
            
             let modalData=null;
-            if (this.props.gameOver){
+            if(this.props.gameOver){
                 modalData=(
                     <Aux>
-                        <div>НЕУСПЕШЕН ОБИД ОБИДИ СЕ ПОВТОРНО</div>
+                        <div>НЕ ГО ПОГОДИВТЕ ЗБОРОТ <strong>{this.props.word.qestionWord.join("")}</strong> ОБИДЕТЕ СЕ ПОВТОРНО</div>
                         <Button clicked={this.confirmNewGame} btnType='Succes'>DA</Button>
                         <Button clicked={this.confirmExitOfGame} btnType='Danger'>NE</Button>
                     </Aux>
@@ -176,11 +177,9 @@ class Keyboard extends Component{
             <div style={{fontSize:'70px'}}>{this.props.wrongAttempts}</div>
             <div style={{display:"flex",justifyContent:'center',marginTop:"100px"}}>
              {word}</div>
-             {/* <MainPage/> */}
             <div className={classes.Keyboard}>
                 <div> {firstRowKeyboard}</div> 
             </div>
-           
             </Aux>
         )
     }
@@ -192,14 +191,14 @@ const mapStateToProps = state => {
         attempts:state.questions.attempts,
         wrongAttempts:state.questions.wrongAttempts,
         word:state.questions.word,
-        gameOver:state.questions.wrongAttempts === 7 ,
+        gameOver:state.questions.wrongAttempts === state.questions.attemtsForGameOver,
         gameOverGoodAttemp:state.questions.wordLength === state.questions.attempts,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchQuestion: () => dispatch(actions.getQusetion()),
+        onFetchQuestion: (id) => dispatch(actions.getQusetion(id)),
         onShowLetter:(letter,array)=>dispatch(actions.showLetter(letter,array)),
         onGameOverHandler:(letter,wordArray)=>dispatch(actions.gameOverHandler(letter,wordArray)),
         onResetData:()=>dispatch(actions.onResetData())

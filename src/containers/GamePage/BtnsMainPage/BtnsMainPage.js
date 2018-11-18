@@ -1,13 +1,15 @@
 import React,{Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import classes from './BtnsMainPage.css';
-import Button from '../../../components/UI/Buttons/Button';
+//import Button from '../../../components/UI/Buttons/Button';
 
 class BtnsMainPage extends Component{
     render(){
         return(
             <div className={classes.BtnMainPage}>
-            <Button btnType='Danger'> <NavLink to="/hangpage/7?zivotni">LESNO</NavLink></Button>
+            <Link to={{pathname:'/hangout/8',search:'?easy'}} className={classes.Link}>ЛЕСНО</Link>
+            <Link to={{pathname:'/hangout/6',search:'?medium'}} className={classes.LinkMedium}>МАЛКУ ПОТЕШКО</Link>
+            <Link to={{pathname:'/hangout/4',search:'?hard'}}  className={classes.Link}>ТЕШКО</Link>
             </div>
         )
     }
