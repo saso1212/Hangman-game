@@ -15,72 +15,72 @@ class Keyboard extends Component{
     state={
         keyboard:{
             firstRow:{
-                А:{elementName:'А',btnClicked:false, img:'sorceForImgA'},
-                Б:{elementName:'Б',btnClicked:false, img:'sorceForImgБ'},
-                В:{elementName:'В',btnClicked:false, img:'sorceForImgВ'},
-                Г:{elementName:'Г',btnClicked:false, img:'sorceForImgГ'},
-                Д:{elementName:'Д',btnClicked:false, img:'sorceForImgA'},
-                Ѓ:{elementName:'Ѓ',btnClicked:false, img:'sorceForImgБ'},
-                Е:{elementName:'Е',btnClicked:false, img:'sorceForImgВ'},
-                Ж:{elementName:'Ж',btnClicked:false, img:'sorceForImgГ'},
-                З:{elementName:'З',btnClicked:false, img:'sorceForImgA'},
-                Ѕ:{elementName:'Ѕ',btnClicked:false, img:'sorceForImgБ'},
-                И:{elementName:'И',btnClicked:false, img:'sorceForImgВ'},
-                Ј:{elementName:'Ј',btnClicked:false, img:'sorceForImgГ'},
-                К:{elementName:'К',btnClicked:false, img:'sorceForImgA'},
-                Л:{elementName:'Л',btnClicked:false, img:'sorceForImgБ'},
-                Љ:{elementName:'Љ',btnClicked:false, img:'sorceForImgВ'},
-                М:{elementName:'М',btnClicked:false, img:'sorceForImgГ'},
-                Н:{elementName:'Н',btnClicked:false, img:'sorceForImgA'},
-                Њ:{elementName:'Њ',btnClicked:false, img:'sorceForImgБ'},
-                О:{elementName:'О',btnClicked:false, img:'sorceForImgВ'},
-                П:{elementName:'П',btnClicked:false, img:'sorceForImgГ'},
-                Р:{elementName:'Р',btnClicked:false, img:'sorceForImgA'},
-                С:{elementName:'С',btnClicked:false, img:'sorceForImgБ'},
-                Т:{elementName:'Т',btnClicked:false, img:'sorceForImgВ'},
-                Ќ:{elementName:'Ќ',btnClicked:false, img:'sorceForImgГ'},
-                У:{elementName:'У',btnClicked:false, img:'sorceForImgA'},
-                Ф:{elementName:'Ф',btnClicked:false, img:'sorceForImgБ'},
-                Х:{elementName:'Х',btnClicked:false, img:'sorceForImgВ'},
-                Ц:{elementName:'Ц',btnClicked:false, img:'sorceForImgГ'},
-                Ч:{elementName:'Ч',btnClicked:false, img:'sorceForImgA'},
-                Џ:{elementName:'Џ',btnClicked:false, img:'sorceForImgБ'},
-                Ш:{elementName:'Ш',btnClicked:false, img:'sorceForImgВ'}
+                А:{elementName:'А',btnClicked:false},
+                Б:{elementName:'Б',btnClicked:false},
+                В:{elementName:'В',btnClicked:false},
+                Г:{elementName:'Г',btnClicked:false},
+                Д:{elementName:'Д',btnClicked:false},
+                Ѓ:{elementName:'Ѓ',btnClicked:false},
+                Е:{elementName:'Е',btnClicked:false},
+                Ж:{elementName:'Ж',btnClicked:false},
+                З:{elementName:'З',btnClicked:false},
+                Ѕ:{elementName:'Ѕ',btnClicked:false},
+                И:{elementName:'И',btnClicked:false},
+                Ј:{elementName:'Ј',btnClicked:false},
+                К:{elementName:'К',btnClicked:false},
+                Л:{elementName:'Л',btnClicked:false},
+                Љ:{elementName:'Љ',btnClicked:false},
+                М:{elementName:'М',btnClicked:false},
+                Н:{elementName:'Н',btnClicked:false},
+                Њ:{elementName:'Њ',btnClicked:false},
+                О:{elementName:'О',btnClicked:false},
+                П:{elementName:'П',btnClicked:false},
+                Р:{elementName:'Р',btnClicked:false},
+                С:{elementName:'С',btnClicked:false},
+                Т:{elementName:'Т',btnClicked:false},
+                Ќ:{elementName:'Ќ',btnClicked:false},
+                У:{elementName:'У',btnClicked:false},
+                Ф:{elementName:'Ф',btnClicked:false},
+                Х:{elementName:'Х',btnClicked:false},
+                Ц:{elementName:'Ц',btnClicked:false},
+                Ч:{elementName:'Ч',btnClicked:false},
+                Џ:{elementName:'Џ',btnClicked:false},
+                Ш:{elementName:'Ш',btnClicked:false}
             }
         },
        initialKeyboard:{
          firstRow:{
-            А:{elementName:'А',btnClicked:false, img:'sorceForImgA'},
-            Б:{elementName:'Б',btnClicked:false, img:'sorceForImgБ'},
-            В:{elementName:'В',btnClicked:false, img:'sorceForImgВ'},
-            Г:{elementName:'Г',btnClicked:false, img:'sorceForImgГ'},
-            Д:{elementName:'Д',btnClicked:false, img:'sorceForImgA'},
-            Ѓ:{elementName:'Ѓ',btnClicked:false, img:'sorceForImgБ'},
-            Е:{elementName:'Е',btnClicked:false, img:'sorceForImgВ'},
-            Ж:{elementName:'Ж',btnClicked:false, img:'sorceForImgГ'},
-            З:{elementName:'З',btnClicked:false, img:'sorceForImgA'},
-            Ѕ:{elementName:'Ѕ',btnClicked:false, img:'sorceForImgБ'},
-            И:{elementName:'И',btnClicked:false, img:'sorceForImgВ'},
-            Ј:{elementName:'Ј',btnClicked:false, img:'sorceForImgГ'},
-            К:{elementName:'К',btnClicked:false, img:'sorceForImgA'},
-            Л:{elementName:'Л',btnClicked:false, img:'sorceForImgБ'},
-            Љ:{elementName:'Љ',btnClicked:false, img:'sorceForImgВ'},
-            М:{elementName:'М',btnClicked:false, img:'sorceForImgГ'},
-            Н:{elementName:'Н',btnClicked:false, img:'sorceForImgA'},
-            Њ:{elementName:'Њ',btnClicked:false, img:'sorceForImgБ'},
-            О:{elementName:'О',btnClicked:false, img:'sorceForImgВ'},
-            П:{elementName:'П',btnClicked:false, img:'sorceForImgГ'},
-            Р:{elementName:'Р',btnClicked:false, img:'sorceForImgA'},
-            С:{elementName:'С',btnClicked:false, img:'sorceForImgБ'},
-            Т:{elementName:'Т',btnClicked:false, img:'sorceForImgВ'},
-            Ќ:{elementName:'Ќ',btnClicked:false, img:'sorceForImgГ'},
-            У:{elementName:'У',btnClicked:false, img:'sorceForImgA'},
-            Ф:{elementName:'Ф',btnClicked:false, img:'sorceForImgБ'},
-            Х:{elementName:'Х',btnClicked:false, img:'sorceForImgВ'},
-            Ц:{elementName:'Ц',btnClicked:false, img:'sorceForImgГ'},
-            Ч:{elementName:'Ч',btnClicked:false, img:'sorceForImgA'},
-            Џ:{elementName:'Џ',btnClicked:false, img:'sorceForImgБ'},
-            Ш:{elementName:'Ш',btnClicked:false, img:'sorceForImgВ'}
+            А:{elementName:'А',btnClicked:false},
+            Б:{elementName:'Б',btnClicked:false},
+            В:{elementName:'В',btnClicked:false},
+            Г:{elementName:'Г',btnClicked:false},
+            Д:{elementName:'Д',btnClicked:false},
+            Ѓ:{elementName:'Ѓ',btnClicked:false},
+            Е:{elementName:'Е',btnClicked:false},
+            Ж:{elementName:'Ж',btnClicked:false},
+            З:{elementName:'З',btnClicked:false},
+            Ѕ:{elementName:'Ѕ',btnClicked:false},
+            И:{elementName:'И',btnClicked:false},
+            Ј:{elementName:'Ј',btnClicked:false},
+            К:{elementName:'К',btnClicked:false},
+            Л:{elementName:'Л',btnClicked:false},
+            Љ:{elementName:'Љ',btnClicked:false},
+            М:{elementName:'М',btnClicked:false},
+            Н:{elementName:'Н',btnClicked:false},
+            Њ:{elementName:'Њ',btnClicked:false},
+            О:{elementName:'О',btnClicked:false},
+            П:{elementName:'П',btnClicked:false},
+            Р:{elementName:'Р',btnClicked:false},
+            С:{elementName:'С',btnClicked:false},
+            Т:{elementName:'Т',btnClicked:false},
+            Ќ:{elementName:'Ќ',btnClicked:false},
+            У:{elementName:'У',btnClicked:false},
+            Ф:{elementName:'Ф',btnClicked:false},
+            Х:{elementName:'Х',btnClicked:false},
+            Ц:{elementName:'Ц',btnClicked:false},
+            Ч:{elementName:'Ч',btnClicked:false},
+            Џ:{elementName:'Џ',btnClicked:false},
+            Ш:{elementName:'Ш',btnClicked:false}
             }
         }
     }
@@ -115,7 +115,7 @@ class Keyboard extends Component{
         this.props.history.push('/');
         this.props.onResetData();
         const initialKeyboard={...this.state.initialKeyboard}
-        this.setState({keyboard:initialKeyboard,matchParams:0})
+        this.setState({keyboard:initialKeyboard})
     }
 
     render()
@@ -144,6 +144,7 @@ class Keyboard extends Component{
                     key={element.key}
                     show={element.show}
                     hide={element.hide}
+                    letter={element.id}
                     >{element.id}</Word>
                 ))
             }
@@ -170,17 +171,16 @@ class Keyboard extends Component{
             
             
         return(
-            
-            <Aux>
-             <Modal show={this.props.gameOver}>{modalData}</Modal>
-             <Modal show={this.props.gameOverGoodAttemp}>{modalData}</Modal> 
-            <div style={{fontSize:'70px'}}>{this.props.wrongAttempts}</div>
-            <div style={{display:"flex",justifyContent:'center',marginTop:"100px"}}>
-             {word}</div>
-            <div className={classes.Keyboard}>
-                <div> {firstRowKeyboard}</div> 
+            <div className={classes.HangPage}>
+               <Modal show={this.props.gameOver}>{modalData}</Modal>
+               <Modal show={this.props.gameOverGoodAttemp}>{modalData}</Modal> 
+               <div style={{fontSize:'70px'}}>{this.props.wrongAttempts}</div>
+               <div style={{display:"flex",justifyContent:'center',marginTop:"100px"}}>
+                 {word}</div>
+                <div className={classes.Keyboard}>
+                   <div> {firstRowKeyboard}</div> 
+                </div>
             </div>
-            </Aux>
         )
     }
 }

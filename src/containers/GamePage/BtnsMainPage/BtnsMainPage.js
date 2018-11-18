@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import classes from './BtnsMainPage.css';
-//import Button from '../../../components/UI/Buttons/Button';
+
 
 class BtnsMainPage extends Component{
     render(){

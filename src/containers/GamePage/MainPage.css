@@ -7,7 +7,7 @@
     flex-direction: column;
     background: -moz-linear-gradient(rgb(130, 196, 135),rgb(31, 49, 32));
     background: linear-gradient(rgb(133, 206, 139),rgb(26, 41, 27));
-   overflow: hidden;
+    overflow: hidden;
     
 }
 .FirstRow{
