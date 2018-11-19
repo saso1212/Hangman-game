@@ -7,6 +7,7 @@ import Aux from '../../huc/Auxilary';
 import Button from '../../components/UI/Buttons/Button';
 import Word from '../../components/Word/Word';
 import Modal from '../../components/UI/Modal/Modal';
+import HangOut from '../../components/HangOut/HangOut';
 
 
 
@@ -174,8 +175,9 @@ class Keyboard extends Component{
             <div className={classes.HangPage}>
                <Modal show={this.props.gameOver}>{modalData}</Modal>
                <Modal show={this.props.gameOverGoodAttemp}>{modalData}</Modal> 
-               <div style={{fontSize:'70px'}}>{this.props.wrongAttempts}</div>
-               <div style={{display:"flex",justifyContent:'center',marginTop:"100px"}}>
+               <div style={{position:'absolute',top:'10%'}}>
+               <HangOut>{this.props.wrongAttempts}</HangOut></div>
+               <div style={{display:"flex",justifyContent:'center',marginTop:"15%"}}>
                  {word}</div>
                 <div className={classes.Keyboard}>
                    <div> {firstRowKeyboard}</div> 

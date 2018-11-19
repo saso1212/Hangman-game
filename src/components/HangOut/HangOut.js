@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './MainPage.css';
+import classes from './HangOut.css';
 //import Button from '../../components/UI/Buttons/Button';
 
 const mainPage =(props)=>{
@@ -8,7 +8,7 @@ const mainPage =(props)=>{
               <div className={classes.Left}></div>
               <div className={classes.Top}></div>
               <div className={classes.Right}>
-              <h1>22</h1>
+              <h1>{props.children}</h1>
               </div>
             </div>
         )
