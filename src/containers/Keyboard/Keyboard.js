@@ -7,6 +7,8 @@ import Aux from '../../huc/Auxilary';
 import Button from '../../components/UI/Buttons/Button';
 import Word from '../../components/Word/Word';
 import Modal from '../../components/UI/Modal/Modal';
+import logo from '../../assets/logo.svg';
+import a from '../../assets/a.svg';
 
 
 
@@ -140,6 +142,8 @@ class Keyboard extends Component{
             <div className={classes.Keyboard}>
                 <div> {firstRowKeyboard}</div> 
             </div>
+            <img src={logo} alt='logo' style={{width:"200px",height:'200px'}}></img>
+            <img src={a} alt='a' style={{width:"300px",height:'300px'}}></img>
             </Aux>
         )
     }
