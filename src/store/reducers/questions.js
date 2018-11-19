@@ -2,35 +2,48 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
 
 const initialState = {
-    purchase:false,
-    qusetions:['МАЧЕ','КУЧЕ','ВОЛК','АВИОН','ДИНОСАУРУС','ОКТОПОД','ПЕПЕРУТКА','ТОПКА','ТРОТИНЕТ','КУКЛА','ФЛОМАСТЕРИ','ТЕЛЕВИЗОР','КОМПЈУТЕР','ТАБЛЕТ'],
+    qusetions:['МАЧЕ','МАСТИЛО','МАКЕДОНИЈА','ТАБЛЕТ','КОМПЈУТЕР','АВИОН','ДИНОСАУРУС','ТЕЛЕВИЗОР','МОБИЛЕН ТЕЛЕФОН','БАНАНА','УЧИЛИШНА ЧАНТА','ЛЕНИАР','ШЕСТАР','ФЛОМАСТЕРИ','МАТЕМАТИКА','ФИЗИКА','АГЛОМЕР','КОШАРКА','МЕЧКА','МАША И МЕДО','ГАРФИЛД',
+             'ЕНЦИКЛОПЕДИЈА','АКВАРИУМ','АЦЕРОЛА','ГОСПОДИН БИН','РАБОТНА МАСА','ПАРИЧНИК','СКОПЈЕ','РЕКАТА ВАРДАР','ОЧИЛА','ТОМ И ЏЕРИ','ПЕНКАЛО','БИТОЛА','ОХРИД','КОПАЧКИ','ТАСТАТУРА','ДРВЕНИ БОИЦИ','КОСТЕНИ','ОВОШЈЕ','ЗЕЛЕНЧУК','ИГРАЧКИ','ПОРТОКАЛ','ЛЕГО КОЦКИ',
+             'НЕПТУН','ЈУПИТЕР','МАРКО ЦЕПЕНКОВ','ПЛАНЕТА ЗЕМЈА','САТУРН','ОКЕАН','ПРИРОДНИ НАУКИ','ФИЗИЧКО ВОСПИTУВАЊЕ','КРИВА ПАЛАНКА','УМЕТНИЧКА СЛИКА','ЗЕЛЕНЧУК','САТУРН','ОХРИД'],
     data:[],
     word:[],
     attempts:0,
     wrongAttempts:0,
-    wordLength:0
+    wordLength:0,
+    attemtsForGameOver:null
 };
-//let item = items[Math.floor(Math.random()*items.length)];
 
 const reducer = ( state = initialState, action ) => {
     const randomQuestion=state.qusetions[Math.floor(Math.random()*state.qusetions.length)].split("");
-    let uniqueArray = randomQuestion.filter(function(item, pos, self) {
+    let flag=0;
+    let uniqueArray = randomQuestion.filter((item, pos, self) =>{
         return self.indexOf(item) === pos;
     })
     let randomWordFromArray=randomQuestion.reduce((acc,cur,i)=>{ acc[i] = cur;return acc},{});
     const wordArray=[];
     for (let key in randomWordFromArray){
-        wordArray.push({
-            key:Math.random(),
-            id:randomWordFromArray[key],
-            show:false,
-            //hide is for handling empty space in word
-            hide:false
-        })
+        if (randomWordFromArray[key] !==" "){
+            wordArray.push({
+               key:Math.random(),
+               id:randomWordFromArray[key],
+               show:false,
+               hide:false
+            })
+        }
+        else{
+            flag=1;
+            wordArray.push({
+                key:Math.random(),
+                id:randomWordFromArray[key],
+                show:false,
+                hide:true
+             })
+        }
     }
     switch ( action.type ){
         case actionTypes.GET_QUSETION :
-        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length});
+        state.data=[];
+        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length-flag,attemtsForGameOver:action.id});
         case actionTypes.QUSETION_HANDLER:
         state.data=[];
         return updateObject(state,{data:state.data.concat(action.data)})
@@ -39,9 +52,10 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.TRUE_ATTEMPT_HANDLER:
         return updateObject(state,{attempts:state.attempts+ action.trueAttempts})
         case actionTypes.ON_RESET_DATA:
-        return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:randomQuestion.length,attempts:0,wrongAttempts:0})
+        // return updateObject(state,{data:state.data.concat(wordArray),word:{qestionWord:randomQuestion},wordLength:uniqueArray.length-flag,attempts:0,wrongAttempts:0});
+        return updateObject(state,{data:[],word:[],attempts:0,wrongAttempts:0,wordLength:0,attemtsForGameOver:null})
         default:
-            return state;
+        return state;
     }
 };
 

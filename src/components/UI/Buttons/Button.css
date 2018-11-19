@@ -1,9 +1,10 @@
 .Button{
     text-align: center;
-    width: 35px;
-    height: 35px;
+    width: 6.5%;
+    padding:1% 0;
     margin: 10px 10px;
-    font-weight: bold;
+    color: rgb(37, 25, 25);
+    font-size: 100%;
     box-shadow: 4px 4px 4px black;
     border-radius: 3px;
     border: none;
@@ -54,4 +55,11 @@
     margin: 10px !important;
     font-weight: bold;
     color: red !important;
+}
+.Cloud{
+   font-size: 20px;
+    border-radius: 30%;
+    padding: 20px 100px !important;
+    background: -moz-linear-gradient();
+    background: linear-gradient(rgb(84, 63, 241),rgb(15, 8, 31))
 }
