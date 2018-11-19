@@ -88,8 +88,11 @@ class Keyboard extends Component{
     }
     
    
-    componentDidMount(){
+    componentWillMount(){
        this.props.onFetchQuestion(+this.props.match.params.id);
+    }
+    componentWillUnmount(){
+        this.props.onResetData();
     }
     btnClickedHandler=(btnName)=>{
             const updatedControls = {
